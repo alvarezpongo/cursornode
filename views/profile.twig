@@ -1,0 +1,8 @@
+{% extends 'layout.twig' %}
+
+{% block content %}
+   <h1>Hola yo soy el perfil de {{ user.displayName }} </h1>
+   <p>{{ user.emails.0.value }} </p>
+   <p>{{ user.username }} </p>
+   <p>{{ user.id }} </p>
+{% endblock %}

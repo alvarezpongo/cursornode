@@ -1,0 +1,36 @@
+{# Herencia #}
+{% extends 'layout.twig' %}
+
+{% block content %}
+    {{ parent() }}
+    {# Includes #}
+    {% include 'lolo.html.twig' %}
+
+    {# Mostrar variables #}
+    <h1>{{ title }}</h1>
+    <h1> Logueado como  {{ user.displayName }}</h1>
+
+    <a href="/login">Login</a>
+    <a href="/user/profile">Ir al perfil</a>
+    <a href="/logout">Salir</a>
+
+    {# Seteo de variables #}
+    {% set foo = [1, 2, 3] %}
+
+    {# Iteraciones #}
+    <ul>
+        {% for f in foo %}
+            <li>{{ f }}</li>
+        {% endfor %}
+    </ul>
+
+    {# Filtros #}
+    {{ "now"|date('d/m/Y H:i') }}
+
+{% endblock %}
+
+{# Parent influye en la posicion donde se pone para pintar el html del parent #}
+{% block content1 %}
+    Aqui es desde el hijo
+    {{ parent() }}
+{% endblock %}
